@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+
+    <properties resource="db.properties"></properties>
+
+    <typeAliases>
+        <!--<typeAlias type="com.lovecoding.pojo.UmsUser" alias="UmsUser"></typeAlias>
+        <typeAlias type="com.lovecoding.pojo.BmsBook" alias="BmsBook"></typeAlias>-->
+        <package name="com.lovecoding.pojo"></package>
+        <package name="com.lovecoding.vo"></package>
+    </typeAliases>
+
+    <!-- 和spring整合后 environments配置将废除 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}" />
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/fellows7_ssm?characterEncoding=utf-8" />
+                <property name="username" value="root" />
+                <property name="password" value="root" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!--可以定向指定到某个类-->
+        <!--<mapper class="com.lovecoding.mapper.UserMapper"></mapper>
+        <mapper class="com.lovecoding.mapper.BmsBookMapper"></mapper>-->
+        <!--指定匹配目录的-->
+        <package name="com.lovecoding.mapper"/>
+    </mappers>
+
+</configuration>
+
+
